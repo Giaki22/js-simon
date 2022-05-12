@@ -1,8 +1,8 @@
 let difficulty = difficultyChoice();
 let memo = [];
-memo = getNumbers(memo, difficulty);
-console.log(memo);
 let t = 5;
+memo = getNumbers(memo, difficulty, t);
+console.log(memo);
 const countdown = setInterval (function(){
     console.log(t);
     t--;
@@ -15,8 +15,8 @@ setTimeout(function() {
 }, 5000);
 
 // FUNCTIONS //
-function getNumbers(array, max){
-    while (array.length < 5) {
+function getNumbers(array, max ,t){
+    while (array.length < t) {
         const randomNumber = Math.floor(Math.random() * max) + 1;
         if (!(array.includes(randomNumber))){
             array.push(randomNumber);
@@ -30,11 +30,11 @@ function difficultyChoice(){
         level = prompt("Seleziona difficoltà: 1 -> Facile; 2 -> Intermedio; 3 -> Difficile");
     } while (isNaN(level) || (!(level == 1) && !(level == 2) && !(level == 3)));
     if (level == 1){
-        return 100;
+        return 50;
     } else if (level == 2){
         return 80;
     } else if (level == 3){
-        return 50;
+        return 100;
     }
 }
 function check(memo){
